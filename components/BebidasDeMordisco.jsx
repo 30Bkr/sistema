@@ -1,23 +1,33 @@
+'use client'
 import React from 'react'
 import Image from 'next/image';
 
 const BebidasDeMordisco = (props) => {
   return (
-    <div className='flex flex-col w-64 h-60 bg-gray-200 rounded-lg'>
-        <div className='ml-1 mt-1'>
+    <div className='grid grid-cols-2 w-80 h-36 bg-orange-100 rounded-lg relative border-2 border-orange-400'>
+      <div className='ml-1 py-1 bg-cover'>
         <Image 
         src={(props.img== ''? `/pabellon.jpeg`: props.img)}
         alt= 'imagen'
-        className='bg-white-200 rounded-lg'
+        className='bg-cover rounded-lg'
         width={140}
         height={140}
         />
-        </div>
+      </div>
 
-        <h1>{props.id}</h1>
-        <h2>{props.precio}</h2>
+      <div className='flex flex-col items-center'>
+        <h1 className='text-2xl ml-1'>{props.id}</h1>
+        <h2 className='text-lg ml-1 text-green-500' >{props.precio}$</h2>
+
+        <div className='flex items-center justify-end mr-4 ml-1 absolute bottom-2 right-0 border border-green-700 rounded-lg'>
+          <button className='bg-green-400 w-24 h-8 rounded-lg'>Agregar +</button>
+        </div>  
+      </div>
+
+
+
     </div>
-  )
+    )
 };
 
 export default BebidasDeMordisco;

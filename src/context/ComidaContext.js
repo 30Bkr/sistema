@@ -42,37 +42,44 @@ export const PedidosProvider = ({children}) => {
         {
             id:'Gatorade',
             price: 2.5,
-            img:''
+            img:'/gatorade.jpeg',
+            
         },
         {
             id:'Malta',
             price: 2.5,
-            img:''
+            img:'',
+            
         },
         {
             id:'Agua 500ml',
             price: 2.5,
-            img:''
+            img:'/agua.jpeg',
+            
         },
         {
             id:'Refresco Pequeño',
             price: 2.5,
-            img:''
+            img:'/refrescoP.jpeg',
+            
         },
         {
             id:'Refresco Grande',
             price: 2.5,
-            img:''
+            img:'/refrescoL.jpeg',
+            
         },
         {
-            id:'Spedd',
+            id:'Speed',
             price: 2.5,
-            img:''
+            img:'/speed.jpeg',
+            
         },
         {
             id:'Yukery',
             price: 2.5,
-            img:''
+            img:'',
+            
         },
     ]);
 
