@@ -4,12 +4,12 @@ import Image from 'next/image';
 
 const BebidasDeMordisco = (props) => {
   return (
-    <div className='grid grid-cols-2 w-80 h-36 bg-orange-100 rounded-lg relative border-2 border-orange-400'>
-      <div className='ml-1 py-1 bg-cover'>
+    <div className='grid grid-cols-2 w-80 h-44 bg-orange-100 rounded-lg relative border-2 border-orange-400'>
+      <div className='ml-1 py-1'>
         <Image 
         src={(props.img== ''? `/pabellon.jpeg`: props.img)}
         alt= 'imagen'
-        className='bg-cover rounded-lg'
+        className='object-cover w-40 h-40 rounded-lg'
         width={140}
         height={140}
         />
