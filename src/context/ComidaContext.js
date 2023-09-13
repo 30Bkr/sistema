@@ -14,26 +14,26 @@ export const PedidosProvider = ({children}) => {
         {
             id: 'Pasticho',
             price: 7,
-            img:''
+            img:'/pasticho.jpeg'
         },
         {
             id: 'Pabellon',
             price: 7,
-            img:''
+            img:'/pabellon.jpeg'
         },
         {
             id: 'Cachapa',
-            price: 7,
-            img:''
+            price: 6,
+            img:'/cachapa.jpeg'
         },
         {
             id: 'Menu',
-            price: 7,
+            price: 6,
             img:''
         },
         {
             id: 'Empandas',
-            price: 7,
+            price: 1.5,
             img:''
         },
 
@@ -47,58 +47,76 @@ export const PedidosProvider = ({children}) => {
         },
         {
             id:'Malta',
-            price: 2.5,
+            price: 1.5,
             img:'',
             
         },
         {
             id:'Agua 500ml',
-            price: 2.5,
+            price: 1.5,
             img:'/agua.jpeg',
             
         },
         {
-            id:'Refresco Pequeño',
-            price: 2.5,
+            id:'Refresco',
+            price: 1.5,
             img:'/refrescoP.jpeg',
             
         },
         {
-            id:'Refresco Grande',
-            price: 2.5,
+            id:'Refresco 1L',
+            price: 3,
             img:'/refrescoL.jpeg',
             
         },
         {
             id:'Speed',
-            price: 2.5,
+            price: 1.5,
             img:'/speed.jpeg',
             
         },
         {
             id:'Yukery',
-            price: 2.5,
+            price: 1.5,
             img:'',
             
         },
+        {
+            id:'Cafe',
+            price:1.5,
+            img: ''
+        }
     ]);
 
     const [chucherias, setChucherias] = useState([
         {
             id:'Pringles',
-            price: 2.5,
-            img:''
+            price: 2,
+            img:'/pringlesP.jpeg'
+        },
+        {
+            id:'Pringles XL',
+            price: 3.5,
+            img:'/pringlesG.jpeg'
         }
     ]);
+
+    const [orden, setOrden] = useState([]);
+
+    const [abierto, setAbierto ] = useState(false)
     return(
         <PedidosContext.Provider
         value={{
             comida,
             bebidas,
+            orden,
             chucherias,
+            abierto,
             setComida,
             setChucherias,
             setBebidas,
+            setOrden,
+            setAbierto,
         }}
         >
             {children}
