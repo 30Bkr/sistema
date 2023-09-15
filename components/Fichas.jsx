@@ -7,11 +7,11 @@ import { usePedidos } from '@/context/ComidaContext';
 const Fichas = (props) => {
   const {setAbierto, setOrden, orden} = usePedidos()
 
-  const agregarProducto = (event, productoData) => {
+  const agregarProducto = (event, datap) => {
     event.preventDefault()
     setAbierto(true);
-    setOrden( productoData)
-    console.log(productoData, event)
+    setOrden([...orden, datap])
+    console.log(orden)
   }
   return (
     <div className='grid grid-cols-2 w-80 h-44 bg-stone-200 rounded-lg relative'>
@@ -31,7 +31,7 @@ const Fichas = (props) => {
 
         <div className='flex items-center justify-end mr-4 ml-1 absolute bottom-2 right-0 rounded-lg'>
           <button className='bg-fuchsia-500 w-24 h-8 rounded-lg text-white'
-          onClick={(event) => agregarProducto(event, data)}
+          onClick={(event) => agregarProducto(event, props)}
           >
             Agregar +
           </button>

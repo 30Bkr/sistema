@@ -3,6 +3,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import Orden from '../../components/Orden'
+import Navbar from './Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,24 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className='flex m-4'>
-          <h1>Mordisco y Sabor</h1>
-          <ul className='flex mx-4'>
-            <li className='mx-4'>
-            <Link href='/'>Inicio</Link>
-              
-            </li>
-            <li className='mx-4'>
-              <Link href='/platos'>Platos</Link>
-            </li>
-            <li className='mx-4'>
-              <Link href='/bebidas'>Bebidas</Link>
-            </li>
-            <li className='mx-4'>
-              <Link href='/chucherias'>Chucherias</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar />
         <PedidosProvider>
           {children}
           <Orden />

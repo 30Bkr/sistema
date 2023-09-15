@@ -48,7 +48,7 @@ export const PedidosProvider = ({children}) => {
         {
             id:'Malta',
             price: 1.5,
-            img:'',
+            img:'/maltaP.jpeg',
             
         },
         {
@@ -76,15 +76,15 @@ export const PedidosProvider = ({children}) => {
             
         },
         {
-            id:'Yukery',
+            id:'Yuky-Pack',
             price: 1.5,
-            img:'',
+            img:'/yuky-pack.jpeg',
             
         },
         {
             id:'Cafe',
             price:1.5,
-            img: ''
+            img: '/cafe.jpeg'
         }
     ]);
 
