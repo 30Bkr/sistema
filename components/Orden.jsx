@@ -6,14 +6,24 @@ import Comandas from './Comandas'
 import '../src/app/globals.css'
 
 const Orden= () => {
-  const {abierto, orden} = usePedidos()
+  const {abierto, orden, cerrar, setOrden} = usePedidos()
+  const eliminarPedido = (id) => {
+    const filteredProducts = orden.filter(product => product.id != id)
+    setOrden(filteredProducts)
+  }
   return (
 <aside className={`${abierto? 'flex' : 'hidden'} ckeckout-side-menu flex-col fixed right-4 top-0  border border-black rounded-lg  bg-white`}
     >
       <div  className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>
-          My Order 
+          Orden 
         </h2>
+        <div 
+        className='flex items-center justify-center rounded-full w-8  h-8 cursor-pointer bg-indigo-200'
+        onClick= {()=> cerrar()}
+        >
+          <h1>X</h1>
+        </div>
       </div>
       <div className='px-6 overflow-y-scroll flex-1'>
         {
@@ -23,6 +33,7 @@ const Orden= () => {
                     id={product.id}
                     img={product.img}
                     price={product.precio}
+                    eliminar={eliminarPedido}
                 />
             ))
         }        

@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import Image from 'next/image';
-import { data } from 'autoprefixer';
 import { usePedidos } from '@/context/ComidaContext';
 
 const Fichas = (props) => {
@@ -10,18 +9,25 @@ const Fichas = (props) => {
   const agregarProducto = (event, datap) => {
     event.preventDefault()
     setAbierto(true);
-    setOrden([...orden, datap])
+    setOrden([...orden, 
+      {
+        id: props.id,
+        img: props.img,
+        precio: props.precio,
+        cantidad: 1
+      }
+    ])
     console.log(orden)
   }
   return (
-    <div className='grid grid-cols-2 w-80 h-44 bg-stone-200 rounded-lg relative'>
-      <div className='m-2'>
+    <div className='grid grid-cols-2 w-80 h-44 bg-sky-50 shadow-md shadow-indigo-500/70 rounded-lg  relative'>
+      <div className=''>
         <Image 
         src={(props.img == ''? `/pabellon.jpeg`: props.img)}
-        alt= 'imagen'
-        className='object-cover w-40 h-40 rounded-lg'
+        alt= {`imagen de ${props.id}`}
+        className='object-cover w-40 h-44 rounded-lg'
         width={140}
-        height={140}
+        height={130}
         />
       </div>
 
@@ -30,7 +36,7 @@ const Fichas = (props) => {
         <h2 className='text-lg ml-1 text-green-500 mt-4' >{props.precio}$</h2>
 
         <div className='flex items-center justify-end mr-4 ml-1 absolute bottom-2 right-0 rounded-lg'>
-          <button className='bg-fuchsia-500 w-24 h-8 rounded-lg text-white'
+          <button className='bg-indigo-500 w-24 h-8 rounded-lg text-white'
           onClick={(event) => agregarProducto(event, props)}
           >
             Agregar +

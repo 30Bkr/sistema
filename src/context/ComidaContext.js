@@ -29,12 +29,12 @@ export const PedidosProvider = ({children}) => {
         {
             id: 'Menu',
             price: 6,
-            img:''
+            img:'/menu.jpg'
         },
         {
             id: 'Empandas',
             price: 1.5,
-            img:''
+            img:'/empanada.jpg'
         },
 
     ]);
@@ -102,7 +102,9 @@ export const PedidosProvider = ({children}) => {
     ]);
 
     const [orden, setOrden] = useState([]);
-
+    const cerrar = () => setAbierto(false)
+    const abrir = () => setAbierto(true)
+    
     const [abierto, setAbierto ] = useState(false)
     return(
         <PedidosContext.Provider
@@ -112,11 +114,13 @@ export const PedidosProvider = ({children}) => {
             orden,
             chucherias,
             abierto,
+            cerrar,
+            abrir,
             setComida,
+            setAbierto,
             setChucherias,
             setBebidas,
             setOrden,
-            setAbierto,
         }}
         >
             {children}
