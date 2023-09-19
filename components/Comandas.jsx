@@ -1,14 +1,27 @@
+import { usePedidos } from '@/context/ComidaContext'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
 const Comandas = props => {
-  const { id, img, price, eliminar} = props
-  const [cantidad, setCantidad] = useState(1)
+  const { id, img, price, eliminar, cantidad} = props
+  const [unidad, setUnidad] = useState(1)
+  const {orden, setOrden} = usePedidos()
+
+  function actualizar(producto, valor, nuevoValor) {
+    const encontrar = orden.find((item) => {
+      return item.id === producto;
+    });
+    console.log('esto',encontrar);
+  }
+
   const quieroMas = () => {
-    setCantidad(cantidad + 1)
+    setUnidad(unidad + 1)
+    actualizar(id, cantidad, unidad)
+    actualizar(id, price, price * unidad)
+    console.log(orden);
   }
   const quieroMenos = () => {
-    setCantidad(cantidad - 1)
+    setUnidad(unidad - 1)
   }
 
   return (
@@ -26,10 +39,10 @@ const Comandas = props => {
         </div>
         <div className='absolute flex bottom-8 left-48 font-bold'>
           <p 
-          className={`${cantidad==1 ? 'hidden' : 'flex'} mr-1 w-4 h-4 items-center justify-center bg-red-200 rounded-full cursor-pointer`}
+          className={`${unidad==1 ? 'hidden' : 'flex'} mr-1 w-4 h-4 items-center justify-center bg-red-200 rounded-full cursor-pointer`}
           onClick={()=> quieroMenos()}
           >-</p>
-          <h1 className='flex mx-1 w-4 h-4 items-center justify-center'>{cantidad}</h1>
+          <h1 className='flex mx-1 w-4 h-4 items-center justify-center'>{unidad}</h1>
           <p 
           className='flex ml-1 w-4 h-4 items-center justify-center bg-red-200 rounded-full cursor-pointer'
           onClick={()=> quieroMas()}

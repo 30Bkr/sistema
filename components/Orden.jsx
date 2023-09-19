@@ -33,6 +33,7 @@ const Orden= () => {
                     id={product.id}
                     img={product.img}
                     price={product.precio}
+                    cantidad={product.cantidad}
                     eliminar={eliminarPedido}
                 />
             ))
