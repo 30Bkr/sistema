@@ -7,17 +7,14 @@ const Comandas = props => {
   const [unidad, setUnidad] = useState(1)
   const [preComanda, setPreComanda] = useState([])
   const {orden, setOrden, comanda, setComanda} = usePedidos()
-  console.log('segundo:', comanda);
+  console.log('segunda comanda:', comanda);
   
 
 
-  const sumarPedido = (peso) => {
-    const identificar = comanda.find((product) => product.id === peso)
-    setPreComanda(identificar)
-    const sumar = preComanda
-    console.log(sumar);
-    setComanda([...comanda, sumar].flat())
-    // console.log('orden:', identificar);
+  const sumarPedido = (event, peso) => {
+    event.preventDefault()
+    const identificar = orden.find((product) => product.id === peso)
+    setComanda([...comanda, identificar].flat())
     console.log('comanda:', comanda);
     setUnidad(unidad + 1)
 
@@ -48,7 +45,7 @@ const Comandas = props => {
           <h1 className='flex mx-1 w-4 h-4 items-center justify-center'>{unidad}</h1>
           <p 
           className='flex ml-1 w-4 h-4 items-center justify-center bg-red-200 rounded-full cursor-pointer'
-          onClick={()=> sumarPedido(id)}
+          onClick={(event)=> sumarPedido(event, id)}
           >+</p>
         </div>
 

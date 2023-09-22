@@ -33,10 +33,8 @@ const Orden= () => {
                 <Comandas 
                     key={product.id}
                     id={product.id}
-                    nombre={product.id}
                     img={product.img}
                     price={product.precio}
-                    cantidad={product.cantidad}
                     eliminar={eliminarPedido}
                 />
             ))

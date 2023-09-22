@@ -12,16 +12,14 @@ const Fichas = (props) => {
     setOrden([...orden, 
       {
         ...datap,
-        cantidad: 1
       }
     ]);
     setComanda([...comanda,
     {
       ...datap,
-      nombre: props.id
     }
     ])
-    console.log('primero:',comanda);
+    console.log('primera comanda:',comanda);
   }
   return (
     <div className='grid grid-cols-2 w-80 h-44 bg-sky-50 shadow-md shadow-indigo-500/70 rounded-lg  relative'>
