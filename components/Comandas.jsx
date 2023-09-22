@@ -5,9 +5,7 @@ import React, { useState } from 'react'
 const Comandas = props => {
   const { id, img, price, eliminar, nombre} = props
   const [unidad, setUnidad] = useState(1)
-  const [preComanda, setPreComanda] = useState([])
   const {orden, setOrden, comanda, setComanda} = usePedidos()
-  console.log('segunda comanda:', comanda);
   
 
 
@@ -15,12 +13,17 @@ const Comandas = props => {
     event.preventDefault()
     const identificar = orden.find((product) => product.id === peso)
     setComanda([...comanda, identificar].flat())
-    console.log('comanda:', comanda);
     setUnidad(unidad + 1)
 
   }
-  const restarPedido = (id) => {
-
+  const restarPedido = (event, id) => {
+    event.preventDefault()
+    let filteredProducts2 = comanda.filter(product => product.id != id)
+    let seleccionar = comanda.filter(product => product.id === id)
+    seleccionar.splice(0,1)
+    let listo = filteredProducts2.concat(seleccionar)
+    console.log('producto finalizado',listo);
+    setUnidad(unidad - 1)
   }
 
 
@@ -40,7 +43,7 @@ const Comandas = props => {
         <div className='absolute flex bottom-8 left-48 font-bold'>
           <p 
           className={`${unidad==1 ? 'hidden' : 'flex'} mr-1 w-4 h-4 items-center justify-center bg-red-200 rounded-full cursor-pointer`}
-          onClick={()=> restarPedido()}
+          onClick={(event)=> restarPedido(event, id)}
           >-</p>
           <h1 className='flex mx-1 w-4 h-4 items-center justify-center'>{unidad}</h1>
           <p 

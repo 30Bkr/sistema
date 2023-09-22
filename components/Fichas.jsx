@@ -19,7 +19,6 @@ const Fichas = (props) => {
       ...datap,
     }
     ])
-    console.log('primera comanda:',comanda);
   }
   return (
     <div className='grid grid-cols-2 w-80 h-44 bg-sky-50 shadow-md shadow-indigo-500/70 rounded-lg  relative'>
