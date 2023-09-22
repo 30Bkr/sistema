@@ -104,6 +104,7 @@ export const PedidosProvider = ({children}) => {
     const [orden, setOrden] = useState([]);
     const cerrar = () => setAbierto(false)
     const abrir = () => setAbierto(true)
+    const [comanda, setComanda] = useState([]);
     
     const [abierto, setAbierto ] = useState(false)
     return(
@@ -114,6 +115,7 @@ export const PedidosProvider = ({children}) => {
             orden,
             chucherias,
             abierto,
+            comanda,
             cerrar,
             abrir,
             setComida,
@@ -121,6 +123,7 @@ export const PedidosProvider = ({children}) => {
             setChucherias,
             setBebidas,
             setOrden,
+            setComanda,
         }}
         >
             {children}

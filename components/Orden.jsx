@@ -6,10 +6,12 @@ import Comandas from './Comandas'
 import '../src/app/globals.css'
 
 const Orden= () => {
-  const {abierto, orden, cerrar, setOrden} = usePedidos()
+  const {abierto, orden, cerrar, setOrden, comanda, setComanda} = usePedidos()
   const eliminarPedido = (id) => {
     const filteredProducts = orden.filter(product => product.id != id)
     setOrden(filteredProducts)
+    const filteredProducts2 = comanda.filter(product => product.id != id)
+    setComanda(filteredProducts2)
   }
   return (
 <aside className={`${abierto? 'flex' : 'hidden'} ckeckout-side-menu flex-col fixed right-4 top-0  border border-black rounded-lg  bg-white`}
@@ -31,6 +33,7 @@ const Orden= () => {
                 <Comandas 
                     key={product.id}
                     id={product.id}
+                    nombre={product.id}
                     img={product.img}
                     price={product.precio}
                     cantidad={product.cantidad}
@@ -45,7 +48,7 @@ const Orden= () => {
             Total:
           </span>
           <span className='font-medium text-2xl'>
-            ${precioTotal(orden)}
+            ${precioTotal(comanda)}
           </span>
         </p>
 

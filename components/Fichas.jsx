@@ -4,20 +4,24 @@ import Image from 'next/image';
 import { usePedidos } from '@/context/ComidaContext';
 
 const Fichas = (props) => {
-  const {setAbierto, setOrden, orden} = usePedidos()
+  const {setAbierto, setOrden, orden, setComanda, comanda} = usePedidos()
 
   const agregarProducto = (event, datap) => {
     event.preventDefault()
     setAbierto(true);
     setOrden([...orden, 
       {
-        id: props.id,
-        img: props.img,
-        precio: props.precio,
+        ...datap,
         cantidad: 1
       }
+    ]);
+    setComanda([...comanda,
+    {
+      ...datap,
+      nombre: props.id
+    }
     ])
-    console.log(orden)
+    console.log('primero:',comanda);
   }
   return (
     <div className='grid grid-cols-2 w-80 h-44 bg-sky-50 shadow-md shadow-indigo-500/70 rounded-lg  relative'>

@@ -3,26 +3,29 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 
 const Comandas = props => {
-  const { id, img, price, eliminar, cantidad} = props
+  const { id, img, price, eliminar, nombre} = props
   const [unidad, setUnidad] = useState(1)
-  const {orden, setOrden} = usePedidos()
+  const [preComanda, setPreComanda] = useState([])
+  const {orden, setOrden, comanda, setComanda} = usePedidos()
+  console.log('segundo:', comanda);
+  
 
-  function actualizar(producto, valor, nuevoValor) {
-    const encontrar = orden.find((item) => {
-      return item.id === producto;
-    });
-    console.log('esto',encontrar);
-  }
 
-  const quieroMas = () => {
+  const sumarPedido = (peso) => {
+    const identificar = comanda.find((product) => product.id === peso)
+    setPreComanda(identificar)
+    const sumar = preComanda
+    console.log(sumar);
+    setComanda([...comanda, sumar].flat())
+    // console.log('orden:', identificar);
+    console.log('comanda:', comanda);
     setUnidad(unidad + 1)
-    actualizar(id, cantidad, unidad)
-    actualizar(id, price, price * unidad)
-    console.log(orden);
+
   }
-  const quieroMenos = () => {
-    setUnidad(unidad - 1)
+  const restarPedido = (id) => {
+
   }
+
 
   return (
     <div className='flex mb-2 items-center relative'>
@@ -40,12 +43,12 @@ const Comandas = props => {
         <div className='absolute flex bottom-8 left-48 font-bold'>
           <p 
           className={`${unidad==1 ? 'hidden' : 'flex'} mr-1 w-4 h-4 items-center justify-center bg-red-200 rounded-full cursor-pointer`}
-          onClick={()=> quieroMenos()}
+          onClick={()=> restarPedido()}
           >-</p>
           <h1 className='flex mx-1 w-4 h-4 items-center justify-center'>{unidad}</h1>
           <p 
           className='flex ml-1 w-4 h-4 items-center justify-center bg-red-200 rounded-full cursor-pointer'
-          onClick={()=> quieroMas()}
+          onClick={()=> sumarPedido(id)}
           >+</p>
         </div>
 
