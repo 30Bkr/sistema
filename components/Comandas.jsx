@@ -22,7 +22,7 @@ const Comandas = props => {
     let seleccionar = comanda.filter(product => product.id === id)
     seleccionar.splice(0,1)
     let listo = filteredProducts2.concat(seleccionar)
-    console.log('producto finalizado',listo);
+    setComanda(listo)
     setUnidad(unidad - 1)
   }
 
