@@ -4,14 +4,28 @@ import { precioTotal } from '@/utils'
 import React from 'react'
 import Comandas from './Comandas'
 import '../src/app/globals.css'
+import Link from 'next/link'
 
 const Orden= () => {
-  const {abierto, orden, cerrar, setOrden, comanda, setComanda} = usePedidos()
+  const {abierto, orden, cerrar, setOrden, comanda, setComanda, comandas, setComandas} = usePedidos()
   const eliminarPedido = (id) => {
     const filteredProducts = orden.filter(product => product.id != id)
     setOrden(filteredProducts)
     const filteredProducts2 = comanda.filter(product => product.id != id)
     setComanda(filteredProducts2)
+  }
+
+  const facturar = () => {
+    const vendido = {
+      productos: comanda,
+      productosTotales: comanda.length,
+      precio: precioTotal(comanda),
+
+    }
+    setComandas([...comandas, vendido])
+    setComanda([])
+    setOrden([])
+    cerrar()
   }
   return (
 <aside className={`${abierto? 'flex' : 'hidden'} ckeckout-side-menu flex-col fixed right-4 top-0  border border-black rounded-lg  bg-white`}
@@ -45,12 +59,20 @@ const Orden= () => {
           <span className='font-light'>
             Total:
           </span>
-          <span className='font-medium text-2xl'>
+          <span className='font-medium text-2xl text-green-600'>
             ${precioTotal(comanda)}
           </span>
         </p>
-
+        <Link href='/comandas' >
+          <button 
+            className='w-full h-12 bg-black rounded-lg'
+            onClick={()=> facturar()}
+          >
+            <p className='text-white'>Facturar</p>
+          </button>
+        </Link>
       </div>
+
     </aside>
   )
 }

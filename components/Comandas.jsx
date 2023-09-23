@@ -14,7 +14,6 @@ const Comandas = props => {
     const identificar = orden.find((product) => product.id === peso)
     setComanda([...comanda, identificar].flat())
     setUnidad(unidad + 1)
-
   }
   const restarPedido = (event, id) => {
     event.preventDefault()
