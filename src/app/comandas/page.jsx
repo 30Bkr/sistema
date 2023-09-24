@@ -8,11 +8,20 @@ import '../globals.css'
 
 const Ventas = () => {
     const {comandas} = usePedidos()
-    console.log(comandas);
-
     const observar = comandas.map(product => product.productos)
     const contar = observar.flat()
-    console.log('aqui flat',contar);
+    const contador = contar
+    .map(item => item.id)
+    .reduce((obj,item)=>{
+        if(!obj[item]){
+            obj[item] =1;
+        }else {
+            obj[item] = obj[item] + 1;
+        }
+        return obj;
+    }, {});
+    const final = Object.entries(contador).forEach(([key,value]) => { `${key} : ${value}` })
+    console.log(final);
   return (
     <>
     <h1 className='mx-4 mt-4'>Comandas</h1>
@@ -32,7 +41,9 @@ const Ventas = () => {
                 ))}           
             </section>
             <section className=' lista border-solid border-2 w-max h-full'>
-                <h1>mirame</h1>
+                <h1>
+                    {}
+                </h1>
             </section>            
         </div>
 
