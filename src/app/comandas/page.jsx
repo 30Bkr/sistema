@@ -40,7 +40,7 @@ const Ventas = () => {
                     />
                 ))}          
             </section>
-            <section className=' lista border-solid border-2 w-max h-full'>
+            <section className='overflow-y-scroll lista border-solid border-2 w-max h-full'>
                 <h1 className='m-4'>
                     {final.map(([key,value]) => (
                         <Comanda 
