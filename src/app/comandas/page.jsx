@@ -37,7 +37,7 @@ const Ventas = () => {
                     precio={producto.precio}
                     articulos= {producto.productos}
                     />
-                ))}           
+                ))}          
             </section>
             <section className=' lista border-solid border-2 w-max h-full'>
                 <h1 className='m-4'>
