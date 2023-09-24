@@ -21,7 +21,6 @@ const Ventas = () => {
         return obj;
     }, {});
     const final = Object.entries(contador)
-    console.log('aqui', final);
   return (
     <>
     <h1 className='mx-4 mt-4'>Comandas</h1>
