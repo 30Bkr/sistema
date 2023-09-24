@@ -11,8 +11,8 @@ const Ventas = () => {
     console.log(comandas);
 
     const observar = comandas.map(product => product.productos)
-    const contar = observar
-    console.log('aqui',observar);
+    const contar = observar.flat()
+    console.log('aqui flat',contar);
   return (
     <>
     <h1 className='mx-4 mt-4'>Comandas</h1>
