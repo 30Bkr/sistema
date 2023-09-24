@@ -8,6 +8,8 @@ import Link from 'next/link'
 
 const Orden= () => {
   const {abierto, orden, cerrar, setOrden, comanda, setComanda, comandas, setComandas} = usePedidos()
+
+
   const eliminarPedido = (id) => {
     const filteredProducts = orden.filter(product => product.id != id)
     setOrden(filteredProducts)
@@ -43,9 +45,9 @@ const Orden= () => {
       </div>
       <div className='px-6 overflow-y-scroll flex-1'>
         {
-            orden.map(product => (
+            orden.map((product, index) => (
                 <Comandas 
-                    key={product.id}
+                    key={`${product.id}${index}`}
                     id={product.id}
                     img={product.img}
                     price={product.precio}
