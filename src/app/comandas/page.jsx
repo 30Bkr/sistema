@@ -4,6 +4,7 @@ import React from 'react'
 import Facturas from '../../../components/Facturas'
 import { precioTotal } from '@/utils'
 import '../globals.css'
+import Comanda from '../../../components/Comanda'
 
 
 const Ventas = () => {
@@ -42,13 +43,11 @@ const Ventas = () => {
             <section className=' lista border-solid border-2 w-max h-full'>
                 <h1 className='m-4'>
                     {final.map(([key,value]) => (
-                            <div className='border-bottom flex justify-between mb-4 w-full'>
-                                <p className='font-bold mr-4'>{key}: </p>
-                                <div className='flex'>
-                                    <p className='mr-1 text-red-500'>{value}</p>
-                                    <p>Unidades</p>
-                                </div>
-                            </div>
+                        <Comanda 
+                        key= {key}
+                        producto = {key}
+                        cantidad ={value}
+                        />
                     ))}
                 </h1>
             </section>            
