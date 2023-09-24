@@ -19,7 +19,7 @@ const Ventas = () => {
     <div className='flex  relative'>
         <div className='grid grid-cols-3 w-full'>
             <section 
-            className=' comandas col-span-2 grid grid-cols-3 mb-14 border-solid border-2 mx-4'
+            className=' comandas col-span-2 overflow-y-scroll grid grid-cols-5 mb-14 border-solid border-2 mx-4'
             >
                 {comandas.map((producto, index) => (
                     <Facturas 
