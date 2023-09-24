@@ -3,12 +3,15 @@ import { usePedidos } from '@/context/ComidaContext'
 import React from 'react'
 import Facturas from '../../../components/Facturas'
 import { precioTotal } from '@/utils'
+import '../globals.css'
+
 
 const Ventas = () => {
     const {comandas} = usePedidos()
     console.log(comandas);
 
     const observar = comandas.map(product => product.productos)
+    const contar = observar
     console.log('aqui',observar);
   return (
     <>
@@ -16,7 +19,7 @@ const Ventas = () => {
     <div className='flex  relative'>
         <div className='grid grid-cols-3 w-full'>
             <section 
-            className='col-span-2 grid grid-cols-3 mb-14 border-solid border-2 mx-4'
+            className=' comandas col-span-2 grid grid-cols-3 mb-14 border-solid border-2 mx-4'
             >
                 {comandas.map((producto, index) => (
                     <Facturas 
@@ -28,7 +31,7 @@ const Ventas = () => {
                     />
                 ))}           
             </section>
-            <section className='border-solid border-2 w-max h-full'>
+            <section className=' lista border-solid border-2 w-max h-full'>
                 <h1>mirame</h1>
             </section>            
         </div>

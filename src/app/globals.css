@@ -8,3 +8,11 @@
     height: calc(100vh - 68px);
     top: 68px;
 }
+.comandas{
+    width: calc(100% - 24px);
+    height: calc(100vh - 138px);
+}
+.lista{
+    width: calc(100% - 16px);
+    height: calc(100vh - 138px);
+}
