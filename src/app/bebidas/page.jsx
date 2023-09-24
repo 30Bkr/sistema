@@ -3,7 +3,7 @@ import React from 'react'
 import { usePedidos } from '@/context/ComidaContext'
 import Fichas from '../../../components/Fichas';
 
-const bebidas = () => {
+const Bebidas = () => {
   const {bebidas} = usePedidos();
 
   return (
@@ -25,4 +25,4 @@ const bebidas = () => {
   )
 }
 
-export default bebidas
+export default Bebidas
