@@ -47,9 +47,6 @@ const Ventas = () => {
             <h1 className='text-sky-500'>
                 ref.Ventas Punto de Ventas: {precioTotal(comandas)}$
             </h1>
-            <h1 className='text-red-500'>
-                ref.Ventas Bolivares: {precioTotal(comandas)}$
-            </h1>
         </section>
     </div>    
     </>
