@@ -16,3 +16,6 @@
     width: calc(100% - 16px);
     height: calc(100vh - 138px);
 }
+.border-bottom{
+    border-bottom: 1px solid black;
+}

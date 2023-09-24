@@ -20,8 +20,8 @@ const Ventas = () => {
         }
         return obj;
     }, {});
-    const final = Object.entries(contador).forEach(([key,value]) => { `${key} : ${value}` })
-    console.log(final);
+    const final = Object.entries(contador)
+    console.log('aqui', final);
   return (
     <>
     <h1 className='mx-4 mt-4'>Comandas</h1>
@@ -41,8 +41,16 @@ const Ventas = () => {
                 ))}           
             </section>
             <section className=' lista border-solid border-2 w-max h-full'>
-                <h1>
-                    {}
+                <h1 className='m-4'>
+                    {final.map(([key,value]) => (
+                            <div className='border-bottom flex justify-between mb-4 w-full'>
+                                <p className='font-bold mr-4'>{key}: </p>
+                                <div className='flex'>
+                                    <p className='mr-1 text-red-500'>{value}</p>
+                                    <p>Unidades</p>
+                                </div>
+                            </div>
+                    ))}
                 </h1>
             </section>            
         </div>
