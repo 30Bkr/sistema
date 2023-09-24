@@ -31,7 +31,6 @@ const Ventas = () => {
             >
                 {comandas.map((producto, index) => (
                     <Facturas 
-                    key= {index}
                     id={index}
                     cantidad ={producto.productosTotales}
                     precio={producto.precio}
