@@ -1,14 +1,21 @@
 'use client'
 import { usePedidos } from '@/context/ComidaContext'
-import React from 'react'
+import React, { useState } from 'react'
 import Facturas from '../../../components/Facturas'
 import { precioTotal } from '@/utils'
 import '../globals.css'
 import Comanda from '../../../components/Comanda'
 
+const codigo = 'laspaolas'
+
 
 const Ventas = () => {
     const {comandas, historia, setHistoria, setComandas } = usePedidos();
+    const [verificar, setVerificar] = useState({
+        confirmar: false,
+        value: '',
+    })
+
     let fecha = new Date();
     let pi = fecha.getDate();
     let pe = fecha.getMonth() +1;
@@ -30,7 +37,7 @@ const Ventas = () => {
     const final = Object.entries(contador)
     const resultado = precioTotal(comandas);
 
-    const cerrar = () => {
+    const confirmado = () => {
         const caja = {
             dia: pi,
             mes: pe,
@@ -41,15 +48,59 @@ const Ventas = () => {
         }
         setHistoria([...historia, caja])
         setComandas([])
+        setVerificar({
+            confirmar: false,
+            value: '',
+        })
+    }
+    const cerrar = () => {
+        setVerificar({
+            ...verificar,
+            confirmar:true,
+        })
+    }
+    const onWrite = (event) => {
+        setVerificar({
+            ...verificar,
+            value: event
+        })
+    }
+    const llave = () => {
+        if(verificar.value === codigo){
+            confirmado()
+        } else {
+            alert('Codigo invalido')
+        }
     }
   return (
     <>
     <div className='flex justify-between items-center mx-4 h-12'>
         <h1 className='mx-4'>Comandas</h1>
         <p className='text-slate-400'>{pi}/{pe}/{po}</p>
-        <button 
-        className='mx-8 bg-red-600 text-white rounded-lg w-32 h-8'
-        onClick={()=> cerrar()}>Cerrar Caja</button>
+        <div className='flex relative'>
+            {verificar.confirmar && 
+            <div className='flex absolute right-44 '>
+                <input className='border border-red-600 mr-1  box-border px-2 w-48 rounded-lg'
+                value={verificar.value} placeholder='Codigo de Seguridad' type='password'
+                onChange={(event)=>{
+                    onWrite(event.target.value);
+                }}
+                ></input>
+                <button 
+                className= 'border border-solid border-red-600 h-8 w-24 rounded-lg'
+                onClick={()=>(
+                    llave()
+                )}
+                >Cerrar</button>
+            </div>
+            }
+            <button 
+            className='mx-8 bg-red-600 text-white rounded-lg w-32 h-8'
+            onClick={()=> cerrar()}>
+                Cerrar Caja
+            </button>
+        </div>
+
     </div>
     <div className='flex  relative'>
         <div className='grid grid-cols-3 w-full'>
