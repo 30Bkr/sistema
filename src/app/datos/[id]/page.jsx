@@ -9,14 +9,12 @@ const Datos = () => {
   let index = router.substring(router.lastIndexOf('/') + 1)
   const esto = historia[index]
   const lista = esto.todo;
-  console.log(lista);
-  console.log(`datos de: ${index}`,esto);
   return (
     <div className='mx-4'>
-      <section className='my-4'>
-        <h1 className='text-stone-500'>Ventas del:  {esto.dia}/{esto.mes}/{esto.ano}</h1>
+      <section className='flex my-4 w-full justify-center'>
+        <h1 className='text-stone-500 font-bold'>Ventas del:  {esto.dia}/{esto.mes}/{esto.ano}</h1>
       </section>
-      <section className=' lista overflow-y-scroll border-solid border-2'>
+      <section className=' lista overflow-y-scroll border-solid border-sky-400 border-2'>
         <h1 className='m-4'>
           {lista.map(([key,value]) => (
             <Comanda 
