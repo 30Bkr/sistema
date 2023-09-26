@@ -40,7 +40,7 @@ const Ventas = () => {
             ventasDiarias: resultado,
         }
         setHistoria([...historia, caja])
-        // setComandas([])
+        setComandas([])
     }
   return (
     <>
