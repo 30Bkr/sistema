@@ -31,7 +31,6 @@ const Ventas = () => {
     const resultado = precioTotal(comandas);
 
     const cerrar = () => {
-        console.log(comandas);
         const caja = {
             dia: pi,
             mes: pe,

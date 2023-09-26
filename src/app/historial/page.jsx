@@ -6,7 +6,6 @@ import Link from 'next/link'
 
 const Historial = () => {
     const {historia} = usePedidos()
-    console.log('historial',historia);
   return (
     <div className='m-4'>
       {historia.map((producto, index) => (
