@@ -23,9 +23,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className=''>
-        <ul>
-          <li>
+        <ul className='flex'>
+          <li className='mr-4'>
             <Link href='/comandas'>Comandas</Link>
+          </li>
+          <li>
+            <Link href='/historial'>Historial</Link>
           </li>
         </ul>
       </div>

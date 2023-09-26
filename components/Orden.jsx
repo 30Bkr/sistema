@@ -9,7 +9,6 @@ import Link from 'next/link'
 const Orden= () => {
   const {abierto, orden, cerrar, setOrden, comanda, setComanda, comandas, setComandas} = usePedidos()
 
-
   const eliminarPedido = (id) => {
     const filteredProducts = orden.filter(product => product.id != id)
     setOrden(filteredProducts)
@@ -22,7 +21,6 @@ const Orden= () => {
       productos: comanda,
       productosTotales: comanda.length,
       precio: precioTotal(comanda),
-
     }
     setComandas([...comandas, vendido])
     setComanda([])

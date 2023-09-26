@@ -107,6 +107,7 @@ export const PedidosProvider = ({children}) => {
 
     const [comanda, setComanda] = useState([]);
     const [comandas, setComandas] = useState([]);
+    const [historia, setHistoria] = useState([])
     
     const [abierto, setAbierto ] = useState(false)
     return(
@@ -119,6 +120,7 @@ export const PedidosProvider = ({children}) => {
             abierto,
             comanda,
             comandas,
+            historia,
             cerrar,
             abrir,
             setComida,
@@ -128,6 +130,7 @@ export const PedidosProvider = ({children}) => {
             setOrden,
             setComanda,
             setComandas,
+            setHistoria,
         }}
         >
             {children}

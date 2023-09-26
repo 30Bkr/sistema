@@ -10,11 +10,11 @@
 }
 .comandas{
     width: calc(100% - 24px);
-    height: calc(100vh - 138px);
+    height: calc(100vh - 162px);
 }
 .lista{
     width: calc(100% - 16px);
-    height: calc(100vh - 138px);
+    height: calc(100vh - 162px);
 }
 .border-bottom{
     border-bottom: 1px solid black;
