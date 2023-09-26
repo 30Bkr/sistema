@@ -17,15 +17,15 @@ const Orden= () => {
   }
 
   const facturar = () => {
-    const vendido = {
-      productos: comanda,
-      productosTotales: comanda.length,
-      precio: precioTotal(comanda),
-    }
-    setComandas([...comandas, vendido])
-    setComanda([])
-    setOrden([])
-    cerrar()
+    // const vendido = {
+    //   productos: comanda,
+    //   productosTotales: comanda.length,
+    //   precio: precioTotal(comanda),
+    // }
+    // setComandas([...comandas, vendido])
+    // setComanda([])
+    // setOrden([])
+    cerrar();
   }
   return (
 <aside className={`${abierto? 'flex' : 'hidden'} ckeckout-side-menu flex-col fixed right-4 top-0  border border-black rounded-lg  bg-white`}
@@ -63,7 +63,7 @@ const Orden= () => {
             ${precioTotal(comanda)}
           </span>
         </p>
-        <Link href='/comandas' >
+        <Link href='/pago' >
           <button 
             className='w-full h-12 bg-black rounded-lg'
             onClick={()=> facturar()}
@@ -72,7 +72,6 @@ const Orden= () => {
           </button>
         </Link>
       </div>
-
     </aside>
   )
 }

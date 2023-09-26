@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 const Comandas = props => {
   const { id, img, price, eliminar} = props
   const [unidad, setUnidad] = useState(1)
-  const {orden, setOrden, comanda, setComanda} = usePedidos()
+  const {orden, comanda, setComanda} = usePedidos()
   
 
   const sumarPedido = (event, peso) => {
