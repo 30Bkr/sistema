@@ -15,7 +15,7 @@ const Ventas = () => {
         confirmar: false,
         value: '',
     })
-
+    console.log('esto:',comandas);
     let fecha = new Date();
     let pi = fecha.getDate();
     let pe = fecha.getMonth() +1;
@@ -36,6 +36,21 @@ const Ventas = () => {
     }, {});
     const final = Object.entries(contador)
     const resultado = precioTotal(comandas);
+    const bolivares = (products) => {
+        let sum = 0
+        products.forEach(product => sum += product.bolivares)
+        return sum
+    }    
+    const puntoV = (products) => {
+        let sum = 0
+        products.forEach(product => sum += product.puntoV)
+        return sum
+    }
+    const pagoM = (products) => {
+        let sum = 0
+        products.forEach(product => sum += product.pagoMovil)
+        return sum
+    }
 
     const confirmado = () => {
         const caja = {
@@ -139,10 +154,13 @@ const Ventas = () => {
                 ref.Ventas Totales: {resultado}$
             </h1>
             <h1 className='mr-4 text-green-500'>
-                ref.Ventas Efectivo: {resultado}$
+                ref.Ventas Efectivo: {bolivares(comandas)}VEF
             </h1>
             <h1 className='text-sky-500'>
-                ref.Ventas Punto de Ventas: {resultado}$
+                Punto de Ventas: {puntoV(comandas)}VEF
+            </h1>
+            <h1 className='text-sky-500'>
+                Pago Movil: {pagoM(comandas)}VEF
             </h1>
         </section>
     </div>    
