@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 const Historial = () => {
     const {historia} = usePedidos()
+    console.log('esto:historia',historia);
   return (
       <div className='grid grid-cols-4 m-4 gap-8'>
           {historia.map((producto, index) => (

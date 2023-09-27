@@ -20,7 +20,6 @@ const Ventas = () => {
     let pi = fecha.getDate();
     let pe = fecha.getMonth() +1;
     let po = fecha.getFullYear();
-    let segundo = fecha.getSeconds();
 
     const observar = comandas.map(product => product.productos);
     const contar = observar.flat();
@@ -51,15 +50,23 @@ const Ventas = () => {
         products.forEach(product => sum += product.pagoMovil)
         return sum
     }
+    const divisas = (products) => {
+        let sum = 0
+        products.forEach(product => sum += product.divisas)
+        return sum
+    }
 
     const confirmado = () => {
         const caja = {
             dia: pi,
             mes: pe,
             ano: po,
-            sec: segundo,
             todo: final,
             ventasDiarias: resultado,
+            bolivares: bolivares(comandas),
+            puntoV: puntoV(comandas),
+            pagoM: pagoM(comandas),
+            divisas: divisas(comandas)
         }
         setHistoria([...historia, caja])
         setComandas([])

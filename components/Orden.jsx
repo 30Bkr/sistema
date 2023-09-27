@@ -7,7 +7,7 @@ import '../src/app/globals.css'
 import Link from 'next/link'
 
 const Orden= () => {
-  const {abierto, orden, cerrar, setOrden, comanda, setComanda, comandas, setComandas} = usePedidos()
+  const {abierto, orden, cerrar, setOrden, comanda, setComanda, comandas, setComandas, preview, setPreview} = usePedidos()
 
   const eliminarPedido = (id) => {
     const filteredProducts = orden.filter(product => product.id != id)
@@ -23,8 +23,15 @@ const Orden= () => {
     //   precio: precioTotal(comanda),
     // }
     // setComandas([...comandas, vendido])
-    // setComanda([])
-    // setOrden([])
+
+    const mira = {
+      productos: comanda,
+      productosTotales: comanda.length,
+      precio: precioTotal(comanda),
+    }
+    setPreview([...preview, mira])
+    setComanda([])
+    setOrden([])
     cerrar();
   }
   return (
