@@ -19,8 +19,7 @@ const Pago = () => {
 
 
   const aca = lista(preview)
-  console.log('preview:', preview);
-  // console.log(precioTotal(preview));
+
 
    
   const pagado = () => {
@@ -37,9 +36,7 @@ const Pago = () => {
     setComanda([])
     setOrden([])
   }
-  // console.log('comanda:',comanda);
-  // console.log('comandas:',comandas);
-  // console.log(bolivares);
+
   const acumulado = (dinero) => {
     let sum = 0;
     sum += bolivares / dinero

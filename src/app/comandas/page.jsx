@@ -15,7 +15,6 @@ const Ventas = () => {
         confirmar: false,
         value: '',
     })
-    console.log('esto:',comandas);
     let fecha = new Date();
     let pi = fecha.getDate();
     let pe = fecha.getMonth() +1;

@@ -10,7 +10,6 @@ const Datos = () => {
   const esto = historia[index]
   const lista = esto.todo;
   const mira = esto.pagoM;
-  console.log('acaaa:', mira);
   return (
     <div className='mx-4'>
       <section className='flex my-4 w-full justify-center'>
