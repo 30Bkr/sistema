@@ -15,13 +15,8 @@ const Pago = () => {
   const [dolar, setDolar] = useState('')
   const [referencia, setReferencia] = useState('')
 
-
-
-
   const aca = lista(preview)
 
-
-   
   const pagado = () => {
     const vendido = {
       productos: epa,
@@ -69,14 +64,14 @@ const Pago = () => {
         }}  
       > 
         <div className=' flex items-center right-4'>
-          <p className='mr-4'>Divisas: </p>
+          <p className='mr-4'>Precio del dolar: </p>
           <input value={dolar} placeholder='Ref.Divisas' type='number' name='dolar'
           className='border-solid border-2 rounded-lg p-1 w-40 ' 
           onChange={ev => setDolar(Number(ev.target.value))}        
           />          
         </div>
         <div className=' flex items-center right-4'>
-          <p className='mr-4'>Referencia: </p>
+          <p className='mr-4'>Calculadora de $ a Bf: </p>
           <input value={referencia} placeholder='Ref.Divisas' type='number' name='referencia'
           className='border-solid border-2 rounded-lg p-1 w-20 ' 
           onChange={ev => setReferencia(Number(ev.target.value))}        

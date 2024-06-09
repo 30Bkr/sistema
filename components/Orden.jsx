@@ -7,7 +7,7 @@ import '../src/app/globals.css'
 import Link from 'next/link'
 
 const Orden= () => {
-  const {abierto, orden, cerrar, setOrden, comanda, setComanda, comandas, setComandas, preview, setPreview} = usePedidos()
+  const {abierto, orden, cerrar, setOrden, comanda, setComanda,  preview, setPreview} = usePedidos()
 
   const eliminarPedido = (id) => {
     const filteredProducts = orden.filter(product => product.id != id)
