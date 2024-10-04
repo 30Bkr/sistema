@@ -34,10 +34,13 @@ const Fichas = (props) => {
     }else {
       return(
       <div className='flex items-center justify-end mr-4 ml-1 absolute bottom-2 right-0 rounded-lg'>
-            <button className='bg-indigo-500 w-24 h-8 rounded-lg text-white'
+            <button className=' group flex items-center justify-center bg-indigo-500 w-24 h-8 rounded-lg text-white'
             onClick={(event) => agregarProducto(event, props)}
             >
-              Agregar +
+              <p className='group-hover:text-green-300'>
+                Agregar 
+              </p>
+              <span className='ml-2 group-hover:animate-bounce group-hover:text-green-400'>+</span>
             </button>
       </div>         
       )
@@ -45,7 +48,7 @@ const Fichas = (props) => {
 
   }
   return (
-    <div className='grid grid-cols-2 w-80 h-44 bg-sky-50 shadow-md shadow-indigo-500/70 rounded-lg  relative'>
+    <div className='grid grid-cols-2 w-80 h-44 bg-sky-50 shadow-2xl shadow-gray-400 rounded-lg  relative'>
       <div className=''>
         <Image 
         src={(props.img == ''? `/pabellon.jpeg`: props.img)}

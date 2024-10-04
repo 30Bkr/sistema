@@ -31,7 +31,6 @@ const Pago = () => {
     setComanda([])
     setOrden([])
   }
-
   const acumulado = (dinero) => {
     let sum = 0;
     sum += bolivares / dinero
