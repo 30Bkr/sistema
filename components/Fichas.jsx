@@ -4,11 +4,11 @@ import Image from 'next/image';
 import { usePedidos } from '@/context/ComidaContext';
 
 const Fichas = (props) => {
-  const {setAbierto, setOrden, orden, setComanda, comanda} = usePedidos()
+  const {abrirPrew, setOrden, orden, setComanda, comanda} = usePedidos()
 
   const agregarProducto = (event, datap) => {
     event.preventDefault()
-    setAbierto(true);
+    abrirPrew();
     setOrden([...orden, 
       {
         ...datap,

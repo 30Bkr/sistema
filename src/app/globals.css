@@ -8,6 +8,9 @@
     height: calc(100vh - 68px);
     top: 68px;
 }
+.checkout-side-menu-preview{
+    margin-top: calc(100vh - 68px);
+}
 .comandas{
     width: calc(100% - 24px);
     height: calc(100vh - 162px);

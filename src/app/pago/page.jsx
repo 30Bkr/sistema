@@ -1,12 +1,13 @@
 'use client'
 import { usePedidos } from '@/context/ComidaContext'
+
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { precioTotal, lista } from '@/utils'
 import Comanda from '../../../components/Comanda'
 
 
-const Pago = () => {
+const Pago =  () => {
   const { setOrden, comanda, comandas, setComanda, setComandas, preview, setPreview} = usePedidos()
   const [bolivares, setBolivares] = useState('')
   const [punto, setPunto] = useState('')

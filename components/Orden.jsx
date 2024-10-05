@@ -7,7 +7,7 @@ import '../src/app/globals.css'
 import Link from 'next/link'
 
 const Orden= () => {
-  const {abierto, orden, cerrar, setOrden, comanda, setComanda,  preview, setPreview} = usePedidos()
+  const {abierto, abiertoPrew, abrirPrew, orden, cerrar, abrir, setOrden, comanda, setComanda,  preview, setPreview, cerrarPrew} = usePedidos()
 
   const eliminarPedido = (id) => {
     const filteredProducts = orden.filter(product => product.id != id)
@@ -33,19 +33,29 @@ const Orden= () => {
     setComanda([])
     setOrden([])
     cerrar();
+    cerrarPrew();
   }
   return (
-<aside className={`${abierto? 'flex' : 'hidden'} ckeckout-side-menu flex-col fixed right-4 top-0  border border-black rounded-lg  bg-white`}
+    // flex ckeckout-side-menu flex-col fixed right-4 top-0  border border-black rounded-lg  bg-white' 
+    <aside className={`${abiertoPrew? 'checkout-side-menu-preview  flex-col fixed right-4 top-0  border border-black rounded-lg  bg-yellow-500'
+      : abierto? 'flex ckeckout-side-menu flex-col fixed right-4 top-0  border border-black rounded-lg  bg-white' 
+      :'1'}`}
     >
       <div  className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>
           Orden 
         </h2>
         <div 
-        className='flex items-center justify-center rounded-full w-8  h-8 cursor-pointer bg-indigo-200'
-        onClick= {()=> cerrar()}
+        className={`${abiertoPrew? 'flex bg-yellow-200 ': ' flex rotate-180 bg-indigo-200'} items-center justify-center rounded-full w-8  h-8 cursor-pointer  `}
+        onClick= {()=> {
+          if(abiertoPrew){
+            cerrarPrew()
+            abrir()
+          }else {
+            abrirPrew()
+          }}}
         >
-          <h1>X</h1>
+          ^
         </div>
       </div>
       <div className='px-6 overflow-y-scroll flex-1'>
