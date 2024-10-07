@@ -39,7 +39,7 @@ const Orden= () => {
     // flex ckeckout-side-menu flex-col fixed right-4 top-0  border border-black rounded-lg  bg-white' 
     <aside className={`${abiertoPrew? 'checkout-side-menu-preview  flex-col fixed right-4 top-0  border border-black rounded-lg  bg-yellow-500'
       : abierto? 'flex ckeckout-side-menu flex-col fixed right-4 top-0  border border-black rounded-lg  bg-white' 
-      :'1'}`}
+      :'hidden'}`}
     >
       <div  className='flex justify-between items-center p-6'>
         <h2 className='font-medium text-xl'>
