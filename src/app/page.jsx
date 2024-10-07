@@ -35,7 +35,7 @@ export default async function Home() {
           key={producto.id}
           id={producto.nombre}
           precio={producto.precio}
-          img={`/${producto.nombre}.jpeg`}
+          img={`/${producto.nombre}.jpg`}
           />
         ))}
         {chucheria.map( producto => (
@@ -43,7 +43,7 @@ export default async function Home() {
           key={producto.id}
           id={producto.nombre}
           precio={producto.precio}
-          img={`/${producto.nombre}.jpeg`}
+          img={`/${producto.nombre}.jpg`}
           />
         ))}
         {bebida.map( producto => (
@@ -51,7 +51,7 @@ export default async function Home() {
           key={producto.id}
           id={producto.nombre}
           precio={producto.precio}
-          img={`/${producto.nombre}.jpeg` }
+          img={`/${producto.nombre}.jpg` }
           />
         ))}
       </div>
