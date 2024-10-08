@@ -5,8 +5,10 @@ import Fichas from '../../../components/Fichas';
 
 
 
+
 const Platos = () => {  
-    const {comida} = usePedidos()
+    // const {comida} = usePedidos()
+
   return (
     <div className='mx-4 mt-4'>
       <h1 className='flex w-full-screen justify-center mb-4'>Mordisco y Sabor.</h1>

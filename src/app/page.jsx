@@ -23,8 +23,6 @@ export default async function Home() {
   let chucheria = productos.filter( (producto) => {
     if(producto.que==='chucheria') return producto
   });
-  let imgComida = comida[2].nombre.replaceAll(' ', '');
-  console.log(imgComida);
   
   
   
@@ -37,7 +35,7 @@ export default async function Home() {
           key={producto.id}
           id={producto.nombre}
           precio={producto.precio}
-          img={`/${producto.nombre}.jpg`}
+          img={`/${producto.nombre.replaceAll(' ', '')}.jpg`}
           />
         ))}
         {chucheria.map( producto => (
@@ -45,7 +43,7 @@ export default async function Home() {
           key={producto.id}
           id={producto.nombre}
           precio={producto.precio}
-          img={`/${producto.nombre}.jpg`}
+          img={`/${producto.nombre.replaceAll(' ', '')}.jpg`}
           />
         ))}
         {bebida.map( producto => (
@@ -53,7 +51,7 @@ export default async function Home() {
           key={producto.id}
           id={producto.nombre}
           precio={producto.precio}
-          img={`/${producto.nombre}.jpg` }
+          img={`/${producto.nombre.replaceAll(' ', '')}.jpg` }
           />
         ))}
       </div>
