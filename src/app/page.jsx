@@ -23,7 +23,9 @@ export default async function Home() {
   let chucheria = productos.filter( (producto) => {
     if(producto.que==='chucheria') return producto
   });
-  console.log(bebida);
+  let imgComida = comida[2].nombre.replaceAll(' ', '');
+  console.log(imgComida);
+  
   
   
   return (
